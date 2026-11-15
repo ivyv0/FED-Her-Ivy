@@ -1,0 +1,468 @@
+/* ---------- Variabelen (kleuren, lettertypes, ruimte) ---------- */
+:root {
+  --zwart: #000000;
+  --wit: #ffffff;
+  --grijs: #767676;
+  --lichtgrijs: #dddddd;
+  --lettertype: Arial, Helvetica, sans-serif;
+  --lettertype-datum: "Courier New", Courier, monospace;
+  --rand: 3rem;
+  --ruimte: 1.5rem;
+}
+
+/* ---------- Basis ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--zwart);
+  color: var(--wit);
+  font-family: var(--lettertype);
+  line-height: 1.4;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+p,
+figure {
+  margin: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* datums in een ander lettertype, net als op de site */
+time {
+  display: block;
+  font-family: var(--lettertype-datum);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+/* ---------- Header (home: wit met groot logo) ---------- */
+header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 1rem;
+  padding: 1.5rem var(--rand);
+  background-color: var(--wit);
+  color: var(--zwart);
+}
+
+/* het grote logo loopt over de hele breedte */
+header h1 {
+  grid-column: 1 / -1;
+}
+
+header p {
+  font-size: 1.7rem;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+header p a {
+  text-decoration: underline;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: var(--ruimte);
+  font-size: 0.9rem;
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ---------- Uitklapmenu ---------- */
+aside {
+  display: grid;
+  gap: 0.5rem;
+  padding: var(--ruimte) var(--rand);
+  background-color: var(--zwart);
+  color: var(--wit);
+  border-bottom: 0.1rem solid var(--wit);
+}
+
+aside[hidden] {
+  display: none;
+}
+
+aside a {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+aside small a {
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+
+/* ---------- Secties ---------- */
+section {
+  padding: 4rem var(--rand);
+}
+
+h2 {
+  font-family: var(--lettertype-datum);
+  font-size: 4rem;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+/* ---------- Hero: kaarten die verspringen ---------- */
+#hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+#hero article:nth-child(3n + 2) {
+  margin-top: 8rem;
+}
+
+#hero article:nth-child(3n) {
+  margin-top: 3rem;
+}
+
+#hero time {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* knop die onderin blijft staan */
+#hero > a {
+  grid-column: 1 / -1;
+  justify-self: end;
+  position: sticky;
+  bottom: 2rem;
+  padding: 0.7rem 1rem;
+  background-color: var(--wit);
+  color: var(--zwart);
+}
+
+/* ---------- Programma (wit) ---------- */
+#programma {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  column-gap: var(--ruimte);
+  align-items: start;
+  background-color: var(--wit);
+  color: var(--zwart);
+}
+
+#programma > h2 {
+  grid-column: 1 / -1;
+}
+
+/* de tabjes Just announced / Next up */
+#programma > p {
+  grid-column: 1;
+  padding-bottom: 1rem;
+  border-bottom: 0.1rem solid var(--zwart);
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#programma > p a + a {
+  margin-left: var(--ruimte);
+  color: var(--grijs);
+}
+
+#programma > ol {
+  grid-column: 1;
+}
+
+#programma li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  padding: 1rem 0 1.5rem;
+  border-bottom: 0.1rem solid var(--lichtgrijs);
+}
+
+#programma li a {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+#programma li small {
+  color: var(--grijs);
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+/* ---------- Highlights (rechts naast het programma) ---------- */
+#highlights {
+  grid-column: 2;
+  grid-row: 2 / 4;
+  padding: 0;
+}
+
+#highlights h2 {
+  margin: 0 0 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.1rem solid var(--zwart);
+  font-family: var(--lettertype);
+  font-size: 0.9rem;
+}
+
+#highlights article {
+  margin-bottom: 2rem;
+}
+
+#highlights time {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+#highlights h3 {
+  font-size: 2rem;
+}
+
+/* ---------- Young Creatives ---------- */
+#young {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--ruimte);
+  align-items: center;
+}
+
+#young h2 {
+  grid-column: 1 / -1;
+}
+
+/* ---------- R&B pagina ---------- */
+#randb header {
+  align-items: center;
+  background-color: var(--zwart);
+  color: var(--wit);
+}
+
+#randb header img {
+  width: 6rem;
+}
+
+#kop {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: var(--ruimte);
+  padding-top: 0;
+}
+
+#kop figure {
+  grid-row: 1 / 3;
+}
+
+#kop h1 {
+  justify-self: end;
+  font-family: var(--lettertype-datum);
+  font-size: 9vw;
+  line-height: 1;
+}
+
+#kop p {
+  align-self: end;
+  padding-top: 1rem;
+  border-top: 0.1rem solid var(--grijs);
+}
+
+/* drie uitgelichte events naast elkaar */
+#uitgelicht {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--ruimte);
+}
+
+#uitgelicht time {
+  margin-top: 1.5rem;
+}
+
+#uitgelicht h3 {
+  font-size: 2rem;
+}
+
+/* lijst met alle evenementen: datum | info | foto */
+#evenementen {
+  padding-top: 0;
+}
+
+#evenementen li {
+  display: grid;
+  grid-template-columns: 4fr 4fr 3fr;
+  gap: var(--ruimte);
+  padding: 1.5rem 0;
+  border-top: 0.1rem solid var(--wit);
+}
+
+#evenementen time {
+  font-size: 2rem;
+}
+
+#evenementen h3 {
+  font-size: 1.7rem;
+}
+
+#evenementen small {
+  display: block;
+  margin-top: 1.5rem;
+  color: var(--grijs);
+  font-size: 1rem;
+}
+
+/* label zoals Uitverkocht */
+mark {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.3rem 0.7rem;
+  background: none;
+  color: var(--wit);
+  border: 0.1rem solid var(--wit);
+  font-family: var(--lettertype-datum);
+  text-transform: uppercase;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ruimte);
+  padding: var(--ruimte) var(--rand);
+  color: var(--grijs);
+  border-top: 0.1rem solid var(--grijs);
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 60em) {
+  :root {
+    --rand: 1.5rem;
+  }
+
+  header p {
+    font-size: 1.2rem;
+  }
+
+  #hero {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  #hero article:nth-child(3n + 2),
+  #hero article:nth-child(3n) {
+    margin-top: 0;
+  }
+
+  #hero article:nth-child(even) {
+    margin-top: 4rem;
+  }
+
+  #programma {
+    grid-template-columns: 1fr;
+  }
+
+  #highlights {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: 3rem;
+  }
+
+  #uitgelicht {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #evenementen li {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #evenementen time {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- Telefoon ---------- */
+@media (max-width: 40em) {
+  :root {
+    --rand: 1rem;
+  }
+
+  header {
+    grid-template-columns: 1fr;
+  }
+
+  #randb header {
+    grid-template-columns: 1fr auto;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  nav a {
+    display: none;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+  }
+
+  section {
+    padding: 2.5rem var(--rand);
+  }
+
+  #hero,
+  #young,
+  #kop,
+  #uitgelicht,
+  #evenementen li {
+    grid-template-columns: 1fr;
+  }
+
+  #hero article:nth-child(even) {
+    margin-top: 0;
+  }
+
+  #kop figure {
+    grid-row: auto;
+  }
+
+  #kop h1 {
+    justify-self: start;
+    margin: 1rem 0;
+    font-size: 20vw;
+  }
+}
